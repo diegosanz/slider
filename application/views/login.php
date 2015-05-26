@@ -6,10 +6,19 @@
 	$this->load->view('default/body');
 ?>
 	<div class="container">
-		<h1>Login</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur int occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</p>
+		<div class="wrapper-form center-block">
+			<h1>Login</h1>
+			<p>
+				Entrada al panel de administración.
+			</p>
+			<form id="form_login" action="<?php echo base_url('login/check') ?>">
+				<div class="form-group form-siamese">
+					<input type="text" class="form-control" required="required" placeholder="Usuario" autocomplete="off">
+					<input type="password" class="form-control" required="required" placeholder="Contraseña">
+				</div>
+				<button type="submit" class="btn btn-block btn-primary">Entrar</button>
+			</form>
+		</div>
 	</div>
 <?php
 	$this->load->view('default/footer');
