@@ -1,0 +1,37 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  cursor: none;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.swiper-button-next {
+  display: none;
+}
+
+.swiper-button-prev {
+  display: none;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+.swiper-pagination {
+  display: none;
+}
+
+.swiper-scrollbar {
+  display: none;
+}
+.swiper-slide {
+  background: #333;
+}

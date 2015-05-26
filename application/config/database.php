@@ -59,10 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
-$active_group = 'default';
+$active_group = 'developing';
 $query_builder = TRUE;
 
-$db['default'] = array(
+$db['developing'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'turismo',
