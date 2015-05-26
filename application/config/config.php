@@ -305,7 +305,7 @@ $config['cache_query_string'] = FALSE;
 | http://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'abcde';
+$config['encryption_key'] = 'c2408f9jc4j320c3424jc029hc0842c';
 
 /*
 |--------------------------------------------------------------------------
@@ -356,7 +356,7 @@ $config['encryption_key'] = 'abcde';
 |
 */
 $config['sess_driver'] = 'database';
-$config['sess_cookie_name'] = 'sess_slider';
+$config['sess_cookie_name'] = 'sess_turismo';
 $config['sess_expiration'] = 32000;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
@@ -427,7 +427,7 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
 $config['csrf_protection'] = TRUE;
-$config['csrf_token_name'] = 'token';
+$config['csrf_token_name'] = 'token_sliderturismo';
 $config['csrf_cookie_name'] = 'csrf_cookie';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
