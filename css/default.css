@@ -2,6 +2,9 @@
 BS Patch
 @autor: Diego Sanz
 */
+body {
+	font-size: 16px;
+}
 button[disabled] > .disabled-working:before {
 	content:"\f110";
 }
@@ -12,6 +15,10 @@ button[disabled] > .disabled-working {
 
 input[type="file"].form-control {
 	height: auto;
+}
+
+label > .annotation {
+	color: #AAA;
 }
 
 select.form-control {
