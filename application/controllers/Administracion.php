@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Administracion extends Admin {
+class Administracion extends CI_Controller {
 
 	public function index(){
 		$this->load->view('administracion');

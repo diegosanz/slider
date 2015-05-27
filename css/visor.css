@@ -1,37 +1,228 @@
-html, body {
-  margin: 0;
-  padding: 0;
+/*.col-top {
+  vertical-align: top;
+}
+.col-middle {
+  vertical-align: middle;
+}
+.col-bottom {
+  vertical-align: bottom;
+}*/
+
+/* columns of same height styles */
+.row-full-height {
   height: 100%;
-  cursor: none;
+}
+.col-full-height {
+  height: 100%;
+  vertical-align: middle;
+}
+.row-same-height {
+  display: table;
+  width: 100%;
+  /* fix overflow */
+  table-layout: fixed;
+}
+.col-xs-height {
+  display: table-cell;
+  float: none !important;
+}
+
+@media (min-width: 768px) {
+  .col-sm-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+/* !columns of same height styles */
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	cursor: none;
 }
 
 h1 {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
+.img-principal-container {
+	padding: 0;
+	margin: 0;
+}
+.img-principal {
+
+}
+
+.panel-info {
+	padding: 0 2em;
+	background-color: #e7e7e7;
+	color: #60605f;
+	position: relative;
+}
+.panel-info .hoyensoria {
+	display: inline-block;
+}
+.panel-info .hoyen {
+	margin: 2em 0 0 0;
+}
+
+.panel-info .hoyen .soria {
+	display: block;
+	font-size: 1.5em;
+}
+
+.panel-info .img-type-container {
+	display: inline-block;
+	margin: 0 0 0 2em;
+}
+.panel-info .img-type {
+	width: 200px;
+	height: 83px;
+	background-repeat: no-repeat;
+}
+
+.panel-info .title {
+	text-transform: uppercase;
+}
+
+.panel-info .datos {
+	font-size: 1.3em;
+	padding: 0.3em 0;
+}
+.panel-info .img-footer {
+	text-align: center;
+	position: absolute;
+	bottom: 1em;
+	left: 0;
+	right: 0;
+}
+.panel-info .img-footer .footer-ayto {
+	margin: 0 2em 0 0;
+}
+
+/* Tipos de eventos */
+.panel-info.exposicion .hoyen {
+	color: #48bac6;
+}
+.panel-info.exposicion .hoyen .soria {
+	color: #5a5a9f;
+}
+.panel-info.exposicion .img-type {
+	background-image: url('../img/slides/exposicion.png');
+}
+.panel-info.exposicion .header {
+	border-bottom: 5px solid #5a5a9f;
+}
+.panel-info.exposicion .datos {
+	border-top: 3px solid #48bac6;
+	border-bottom: 3px solid #48bac6;
+}
+
+.panel-info.general .hoyen {
+	color: #48bac6;
+}
+.panel-info.general .hoyen .soria {
+	color: #5a5a9f;
+}
+.panel-info.general .img-type {
+	background-image: url('../img/slides/general.png');
+}
+.panel-info.general .header {
+	border-bottom: 5px solid #5a5a9f;
+}
+.panel-info.general .datos {
+	border-top: 3px solid #48bac6;
+	border-bottom: 3px solid #48bac6;
+}
+
+.panel-info.infantil .hoyen {
+	color: #f08d27;
+}
+.panel-info.infantil .hoyen .soria {
+	color: #55413f;
+}
+.panel-info.infantil .img-type {
+	background-image: url('../img/slides/infantil.png');
+}
+.panel-info.infantil .header {
+	border-bottom: 5px solid #55413f;
+}
+.panel-info.infantil .datos {
+	border-top: 3px solid #f08d27;
+	border-bottom: 3px solid #f08d27;
+}
+
+.panel-info.musica .hoyen {
+	color: #3e8880;
+}
+.panel-info.musica .hoyen .soria {
+	color: #8d114b;
+}
+.panel-info.musica .img-type {
+	background-image: url('../img/slides/musica.png');
+}
+.panel-info.musica .header {
+	border-bottom: 5px solid #8d114b;
+}
+.panel-info.musica .datos {
+	border-top: 3px solid #3e8880;
+	border-bottom: 3px solid #3e8880;
+}
+
+.panel-info.teatro .hoyen {
+	color: #f8b40d;
+}
+.panel-info.teatro .hoyen .soria {
+	color: #7b3e8c;
+}
+.panel-info.teatro .img-type {
+	background-image: url('../img/slides/teatro.png');
+}
+.panel-info.teatro .header {
+	border-bottom: 5px solid #7b3e8c;
+}
+.panel-info.teatro .datos {
+	border-top: 3px solid #f8b40d;
+	border-bottom: 3px solid #f8b40d;
+}
+/* !Tipos de eventos */
+
 .swiper-button-next {
-  display: none;
+	display: none;
 }
 
 .swiper-button-prev {
-  display: none;
+	display: none;
 }
 
 .swiper-container {
-  width: 100%;
-  height: 100%;
-  background: #000;
-  overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	overflow: hidden;
 }
 
 .swiper-pagination {
-  display: none;
+	display: none;
 }
 
 .swiper-scrollbar {
-  display: none;
+	display: none;
 }
 .swiper-slide {
-  background: #333;
+	background: #FFF;
 }
