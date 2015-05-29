@@ -3,6 +3,9 @@
 class Administracion extends CI_Controller {
 
 	public function index(){
-		$this->load->view('administracion');
+		$data = [];
+		$this->load->library('navbar');
+		$data['navbar'] = $this->navbar->get_navbar();
+		$this->load->view('administracion', $data);
 	}
 }
