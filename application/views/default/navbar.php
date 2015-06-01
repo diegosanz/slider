@@ -20,9 +20,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
+						<li><a href="mailto:servicio@tecnico.com">Soporte técnico *</a></li>
 						<li class="divider"></li>
 						<li>
 							<a href="<?php echo base_url( $navbar['loginBtn']['link'] ); ?>">

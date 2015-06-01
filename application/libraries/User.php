@@ -2,17 +2,20 @@
 
 class User {
 	// ATRIBUTOS
-	private $userName = "";
+	private $userName = FALSE;
 	private $role = FALSE;
 	private $roleList = array();
 
 	public function __construct() {
+		$CI =& get_instance();
+
 		$this->roleList["admin"] = 998;
 		$this->roleList["user"] = 1000;
 
-		$CI =& get_instance();
-		$this->role = $CI->session->userdata('role');
-		$this->userName = $CI->session->userdata('user');
+		if( $CI->session->userdata('user') !== null ){
+			$this->role = $CI->session->userdata('role');
+			$this->userName = $CI->session->userdata('user');
+		}
 	}
 
 	//METODOS

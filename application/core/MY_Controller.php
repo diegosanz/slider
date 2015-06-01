@@ -9,7 +9,7 @@ class Logged_controller extends CI_Controller {
 		if(!$this->user->isLogged()){
 			$this->session->set_flashdata('accessAttempt', base_url(uri_string()));
 
-			redirect(base_url(), 'refresh');
+			redirect(base_url('login'), 'refresh');
 			exit();
 		}
 	}
@@ -24,7 +24,7 @@ class Admin_controller extends CI_Controller {
 		if(!$this->user->isAdmin()){
 			$this->session->set_flashdata('accessAttempt', base_url(uri_string()));
 
-			redirect(base_url(), 'refresh');
+			redirect(base_url('login'), 'refresh');
 			exit();
 		}
 	}
