@@ -8,4 +8,9 @@ class Login extends CI_Controller {
 		$data['navbar'] = $this->navbar->get_navbar();
 		$this->load->view('login', $data);
 	}
+
+	public function check(){
+		$credentials['user'] = $this->input->post('user');
+		$credentials['password'] = $this->input->post('password');
+	}
 }

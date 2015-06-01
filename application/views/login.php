@@ -13,10 +13,10 @@
 				<p>
 					Entrada al panel de administración.
 				</p>
-				<form id="form_login" action="<?php echo base_url('login/check') ?>">
+				<form id="form_login" action="<?php echo base_url('login/check') ?>" role="form">
 					<div class="form-group form-siamese">
-						<input type="text" class="form-control" required="required" placeholder="Usuario" autocomplete="off">
-						<input type="password" class="form-control" required="required" placeholder="Contraseña">
+						<input type="text" name="user" id="user" class="form-control" placeholder="Usuario" autocomplete="off" required>
+						<input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" autocomplete="off" required>
 					</div>
 					<div>
 						<button type="submit" class="btn btn-primary">Entrar</button>
@@ -25,5 +25,33 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		$('form').on('submit', function(event){
+			event.preventDefault();
+
+			var redirect = "<?php
+				if($this->session->flashdata('accessAttempt')){
+					echo $this->session->flashdata('accessAttempt');
+				}else{
+					echo base_url('administracion');
+				}?>";
+
+			$.ajax({
+				type: 'POST'
+				, url: $(this).attr('action')
+				, data: $(this).serialize()
+				, success: function(data){
+					if(data === true){
+						location.href = redirect;
+					}else{
+						alert("Usuario y/o contraseña incorrecto");
+					}
+				}
+				, error: function(error){
+					alert("Error "+error);
+				}
+			});
+		});
+	</script>
 <?php
 	$this->load->view('default/footer');
