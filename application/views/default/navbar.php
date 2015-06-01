@@ -20,7 +20,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="mailto:servicio@tecnico.com">Soporte técnico *</a></li>
+						<li><a href="mailto:<?php echo $this->config->item('supportMail') ?>"><i class="fa fa-fw fa-envelope-o"></i> Soporte técnico</a></li>
 						<li class="divider"></li>
 						<li>
 							<a href="<?php echo base_url( $navbar['loginBtn']['link'] ); ?>">

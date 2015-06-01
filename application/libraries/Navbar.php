@@ -9,7 +9,7 @@ class Navbar {
 	private $elements = array(
 		"userName" => 'No logueado'
 		, "loginBtn" => array(
-			'text' => 'Entrar'
+			'text' => '<i class="fa fa-fw fa-log-in"></i> Entrar'
 			, 'link' => 'login'
 		)
 	);
@@ -21,9 +21,9 @@ class Navbar {
 		// si el usuario está logueado se cambian los atributos
 		if( $this->CI->user->isLogged() ){
 			$this->elements = array(
-				"userName" => $this->CI->user->getUserName()
+				"userName" => '<i class="fa fa-user"></i> '.$this->CI->user->getUserName()
 				, "loginBtn" => array(
-					'text' => 'Salir'
+					'text' => '<i class="fa fa-fw fa-sign-out"></i> Salir'
 					, 'link' => 'logout'
 				)
 			);

@@ -15,8 +15,8 @@
 				</p>
 				<form id="form_login" action="<?php echo base_url('login/check') ?>" role="form">
 					<div class="form-group form-siamese">
-						<input type="text" name="user" id="user" class="form-control" placeholder="Usuario" autocomplete="off" required>
-						<input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" autocomplete="off" required>
+						<input type="text" name="user" id="user" class="form-control" placeholder="Usuario" required>
+						<input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
 					</div>
 					<div>
 						<button type="submit" class="btn btn-primary">Entrar</button>
@@ -41,7 +41,7 @@
 				, url: $(this).attr('action')
 				, data: $(this).serialize()
 				, success: function(data){
-					if(data === true){
+					if(data.isCorrect === true){
 						location.href = redirect;
 					}else{
 						alert("Usuario y/o contraseña incorrecto");
