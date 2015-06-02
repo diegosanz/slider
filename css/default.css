@@ -139,7 +139,14 @@ textarea.form-control {
 .wrapper-form {
 	max-width: 35em;
 }
-/*! BS patch*/
+/* !BS patch*/
+
+/* BS datepicker patch */
+.input-daterange .input-group-addon {
+	border: 0px !important;
+	background: #E7E7E7;
+}
+/* !BS datepicker patch */
 
 .browserupgrade {
 	text-align: center;
