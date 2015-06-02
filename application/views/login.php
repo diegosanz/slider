@@ -28,6 +28,8 @@
 	<script>
 		$('form').on('submit', function(event){
 			event.preventDefault();
+			var thisFrom = $(this);
+			$("*[type='submit']", thisFrom).attr("disabled", "disabled");
 
 			var redirect = "<?php
 				if($this->session->flashdata('accessAttempt')){
@@ -44,11 +46,22 @@
 					if(data.isCorrect === true){
 						location.href = redirect;
 					}else{
-						alert("Usuario y/o contraseña incorrecto");
+						createAlert(
+							'Login incorrecto'
+						, 'Compruebe que ha escrito bien su <b>nombre</b> y su <b>contraseña</b>'
+						, 'notice'
+						);
 					}
 				}
 				, error: function(error){
-					alert("Error "+error);
+					createAlert(
+							'Error de comunicación con el servidor'
+						, 'Inténtelo de nuevo pasados unos segundos. Si el error persiste contacte con el servicio técnico.'
+						, 'error'
+						);
+				}
+				, complete: function() {
+					$("*[type='submit']", thisFrom).prop("disabled", false);
 				}
 			});
 		});

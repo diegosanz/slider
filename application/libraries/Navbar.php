@@ -9,7 +9,7 @@ class Navbar {
 	private $elements = array(
 		"userName" => 'No logueado'
 		, "loginBtn" => array(
-			'text' => '<i class="fa fa-fw fa-log-in"></i> Entrar'
+			'text' => '<i class="fa fa-fw fa-sign-in"></i> Entrar'
 			, 'link' => 'login'
 		)
 	);

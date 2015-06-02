@@ -1,7 +1,5 @@
-/*
-BS Patch
-@autor: Diego Sanz
-*/
+/* --- PATCH --- */
+/* BS Patch */
 body {
 	font-size: 16px;
 }
@@ -47,10 +45,10 @@ textarea.form-control {
 }
 
 .form-control optgroup {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	        box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 	color: #333;
   background-color: #f5f5f5;
 	padding: 1em 0 0 1em;
@@ -148,6 +146,17 @@ textarea.form-control {
 }
 /* !BS datepicker patch */
 
+/* BS lumen patch */
+.list-group-item a {
+	display: block;
+	margin: -10px -15px;
+	padding: 10px 15px;
+}
+/* !BS lumen patch */
+
+/* --- !PATCH --- */
+
+/* --- STYLES --- */
 .browserupgrade {
 	text-align: center;
 	padding: 1em;

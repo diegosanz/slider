@@ -1,5 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 	$this->load->view('default/head');
+?>
+	<title>Modificar evento</title>
+<?php
 	$this->load->view('default/body');
 
 	$this->load->view('administracion/view_open');
