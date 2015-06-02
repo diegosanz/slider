@@ -15,7 +15,7 @@
 			<p>
 				Permite añadir nuevos eventos. Cada evento aparecerá automáticamente en la presentación en el rango de fechas configurado (ambas fechas incluidas).
 			</p>
-			<form action="<?php echo base_url('administracion/add') ?>" class="wrapper-form center-block">
+			<form action="<?php echo base_url('administracion/formAdd') ?>" class="wrapper-form center-block" id="formAdd">
 				<div class="form-group">
 					<label for="titulo">Titulo del evento</label>
 					<input type="text" name="titulo" id="titulo" class="form-control" required>
@@ -41,7 +41,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="imagen">Imagen</label>
+					<label for="imagen">Imagen <span class="annotation">(Formatos: JPG o PNG, tamaño máximo: 10Mb)</span></label>
 					<input type="file" name="imagen" id="imagen" class="form-control">
 				</div>
 

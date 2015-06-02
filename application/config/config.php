@@ -356,7 +356,7 @@ $config['encryption_key'] = 'bu823yfh82ñdgh328h7d38dh24f3yh';
 |
 */
 $config['sess_driver'] = 'database';
-$config['sess_cookie_name'] = 'sess_turismo';
+$config['sess_cookie_name'] = 'sess_slider';
 $config['sess_expiration'] = 32000;
 $config['sess_save_path'] = 'ci_sessions';
 $config['sess_match_ip'] = FALSE;
