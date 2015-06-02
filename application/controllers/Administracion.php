@@ -44,15 +44,6 @@ class Administracion extends Logged_controller {
 		requireAjaxRequest();
 		$this->load->model('Slides_model');
 
-		$formData = array(
-				'titulo' => $this->input->post('titulo')
-			, 'datos' => $this->input->post('titulo')
-			, 'fecha_inicio' => $this->input->post('titulo')
-			, 'fecha_fin' => $this->input->post('titulo')
-			, 'descripcion' => $this->input->post('titulo')
-			, 'foto' => $this->input->post('titulo')
-		);
-
 		$response = $this->slides_model->formAdd();
 	}
 }

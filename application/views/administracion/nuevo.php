@@ -41,7 +41,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="imagen">Imagen <span class="annotation">(Formatos: JPG o PNG, tamaño máximo: 10Mb)</span></label>
+					<label for="imagen">Imagen <span class="annotation">(Formatos: JPG, PNG o GIF. Tamaño máximo: 10Mb)</span></label>
 					<input type="file" name="imagen" id="imagen" class="form-control">
 				</div>
 
