@@ -515,3 +515,8 @@ $config['salt'] = "axdv";
  * Email de soporte
  */
 $config['supportMail'] = "info@mail.com";
+
+/**
+ * Ruta de los archivos de las imágenes del slider
+ */
+$config['photosRoute'] = './img/uploaded/';

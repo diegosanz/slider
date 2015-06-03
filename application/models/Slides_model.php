@@ -45,20 +45,26 @@ class Slides_model extends CI_Model {
 			, 'foto' => null
 		);
 
-		/**
-		Validación: xss, salto de línea, not NULL, max length
+		// validacion: trim, not NULL
+		foreach ($formData as $key => $value) {
+			if($formData[$key] === NULL){
+				$formData[$key] = "";
+			}else{
+				$formData[$key] = trim($formData[$key]);
+			}
+		}
 
-		REDIMENSIONADO DE IMAGENES
-		*/
+		// subir la foto
+		$photoRoute = $this->config->item('photosRoute');
+		$photo = $this->uploadPhoto('imagen', $photoRoute);
 
-		$photo = $this->uploadPhoto('imagen');
-
-		if($photo){
+		// redimensionar la foto
+		if($photo && resizePhoto($photoRoute, $photo)){
 			$formData['foto'] = $photo;
 		}
 
-
 		$result = $this->db->insert('eventos', $formData);
+
 
 
 		return $result;
@@ -66,10 +72,10 @@ class Slides_model extends CI_Model {
 
 
 	// --- PRIVATE ---
-	private function uploadPhoto($file){
+	private function uploadPhoto($file, $route){
 		$result = FALSE;
 
-		$config['upload_path'] = './img/uploaded/';
+		$config['upload_path'] = $route;
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size'] = '12000';
 		$config['overwrite'] = false;
@@ -85,4 +91,23 @@ class Slides_model extends CI_Model {
 		return $result;
 	}
 
+	/**
+	 * Redimensiona la imagen
+	 *
+	 * @param STRING ruta hacia de la imagen a convertir
+	 * @param STRING nombre de la imagen a convertir
+	 * @return
+	 */
+	private function resizePhoto($photoRoute, $photo){
+		$config['image_library'] = 'gd2';
+		$config['source_image'] = $photoRoute.$photo;
+		$config['create_thumb'] = false;
+		$config['maintain_ratio'] = true;
+		$config['width'] = 1280;
+		$config['height'] = 1080;
+
+		$this->load->library('image_lib', $config);
+
+		$this->image_lib->resize();
+	}
 }

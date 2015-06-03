@@ -1,7 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 	$this->load->view('default/head');
 ?>
-	<link rel="stylesheet" href="<?php echo base_url('css/login.css'); ?>">
 	<title>Login</title>
 <?php
 	$this->load->view('default/body');

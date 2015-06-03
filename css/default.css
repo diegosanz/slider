@@ -174,3 +174,8 @@ textarea.form-control {
 	text-align: center;
 	padding: 1em;
 }
+
+.login-container {
+	margin-top: 2em;
+	margin-bottom: 1em;
+}
