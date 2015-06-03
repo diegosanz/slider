@@ -15,10 +15,21 @@
 			<p>
 				Permite añadir nuevos eventos. Cada evento aparecerá automáticamente en la presentación en el rango de fechas configurado (ambas fechas incluidas).
 			</p>
-			<form action="<?php echo base_url('administracion/formAdd') ?>" class="wrapper-form center-block" id="formAdd">
+			<form action="<?php echo base_url('administracion/formAdd') ?>" class="wrapper-form center-block" id="formAdd" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="titulo">Titulo del evento</label>
-					<input type="text" name="titulo" id="titulo" class="form-control" required>
+					<input type="text" name="titulo" id="titulo" class="form-control" required autofocus>
+				</div>
+
+				<div class="form-group">
+					<label for="tipo">Tipo de evento</label>
+					<select id="tipo" name="tipo" class="form-control" required>
+						<?php
+							foreach ($tiposEventos as $evento) {
+								echo sprintf('<option value="%d">%s</option>', $evento['id'], $evento['nombre']);
+							}
+						?>
+					</select>
 				</div>
 
 				<div class="form-group">
@@ -45,9 +56,7 @@
 					<input type="file" name="imagen" id="imagen" class="form-control">
 				</div>
 
-				<button type="submit" class="btn btn-primary">
-					<i class="fa fa-floppy-o"></i> Guardar
-				</button>
+				<button type="submit" class="btn btn-primary">Guardar</button>
 			</form>
 		</div>
 
@@ -62,38 +71,46 @@
 		// submit del formulario
 		$('form').on('submit', function(event){
 			event.preventDefault();
-			var thisFrom = $(this);
-			$("*[type='submit']", thisFrom).attr("disabled", "disabled");
+			$("*[type='submit']", thisForm).attr("disabled", "disabled");
+
+			var thisForm = $(this);
+			var formData = new FormData(thisForm[0]);
+			formData.append('imagen', $("#imagen")[0].files[0]);
+
 
 			$.ajax({
-				type: 'POST'
-				, url: $(this).attr('action')
-				, data: $(this).serialize()
+					type: 'POST'
+				, url: thisForm.attr('action')
+				, data: formData
+				, cache: false
+				, contentType: false
+				, processData: false
 				, success: function(data){
-					if(data.isCorrect === true){
+						if(data.isCorrect === true){
+							createAlert(
+								'Guardado'
+							, 'El evento se ha guardado correctamente.'
+							, 'success'
+							);
+						}else{
+							createAlert(
+								'Error'
+							, 'El formulario no era correcto'
+							, 'warning'
+							);
+						}
+					}
+				, error: function(error){
 						createAlert(
-							'Guardado'
-						, 'El evento se ha guardado correctamente.'
-						, 'success'
-						);
-					}else{
-						createAlert(
-							'Error'
-						, 'El formulario no era correcto'
-						, 'warning'
+								'Error de comunicación con el servidor'
+							, 'Inténtelo de nuevo pasados unos segundos. Si el error persiste contacte con el servicio técnico.'
+							, 'error'
 						);
 					}
-				}
-				, error: function(error){
-					createAlert(
-							'Error de comunicación con el servidor'
-						, 'Inténtelo de nuevo pasados unos segundos. Si el error persiste contacte con el servicio técnico.'
-						, 'error'
-						);
-				}
 				, complete: function() {
-					$("*[type='submit']", thisFrom).prop("disabled", false);
-				}
+						$("*[type='submit']", thisForm).prop("disabled", false);
+						// resetear formulario [???]
+					}
 			});
 		});
 	});

@@ -15,7 +15,7 @@
 				</p>
 				<form id="form_login" action="<?php echo base_url('login/check') ?>" role="form">
 					<div class="form-group form-siamese">
-						<input type="text" name="user" id="user" class="form-control" placeholder="Usuario" required>
+						<input type="text" name="user" id="user" class="form-control" placeholder="Usuario" required autofocus>
 						<input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
 					</div>
 					<div>
