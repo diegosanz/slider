@@ -87,6 +87,7 @@
 				, processData: false
 				, success: function(data){
 						if(data.isCorrect === true){
+							thisForm[0].reset();
 							createAlert(
 								'Guardado'
 							, 'El evento se ha guardado correctamente.'
@@ -109,7 +110,6 @@
 					}
 				, complete: function() {
 						$("*[type='submit']", thisForm).prop("disabled", false);
-						// resetear formulario [???]
 					}
 			});
 		});

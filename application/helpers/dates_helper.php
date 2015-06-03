@@ -26,6 +26,5 @@
 	 * @return BOOLEAN fecha correcta/incorrecta
 	 */
 	function dateChecker($format, $date){
-		$date = DateTime::createFromFormat($format, $date);
-		$return !!$date;
+		return (bool)DateTime::createFromFormat($format, $date);
 	}

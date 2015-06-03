@@ -45,7 +45,7 @@ class Administracion extends Logged_controller {
 		requireAjaxRequest();
 		$this->load->model('slides_model');
 
-		$response = $this->slides_model->formAdd();
+		$response['isCorrect'] = $this->slides_model->formAdd();
 		$data['json'] = json_encode($response);
 
 		$this->load->view('json', $data);

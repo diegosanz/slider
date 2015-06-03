@@ -11,3 +11,5 @@
 !.htaccess
 #application/config/database.php
 #application/config/config.php
+application/img/uploads/*
+

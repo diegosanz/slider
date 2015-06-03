@@ -33,8 +33,6 @@ class Slides_model extends CI_Model {
 	public function formAdd(){
 		$this->load->helper('dates');
 
-		$resul = false;
-
 		$formData = array(
 				'titulo' => $this->input->post('titulo')
 			, 'datos' => $this->input->post('datos')
@@ -43,6 +41,7 @@ class Slides_model extends CI_Model {
 			, 'descripcion' => $this->input->post('descripcion')
 			, 'id_tipos_eventos' => $this->input->post('tipo')
 			, 'foto' => null
+			, 'ajuste' => null
 		);
 
 		// validacion: trim, not NULL
@@ -56,18 +55,20 @@ class Slides_model extends CI_Model {
 
 		// subir la foto
 		$photoRoute = $this->config->item('photosRoute');
-		$photo = $this->uploadPhoto('imagen', $photoRoute);
+		$photoInfo = $this->uploadPhoto('imagen', $photoRoute);
 
 		// redimensionar la foto
-		if($photo && resizePhoto($photoRoute, $photo)){
-			$formData['foto'] = $photo;
+		if($photoInfo && $this->resizePhoto($photoRoute, $photoInfo['file_name'])){
+			$formData['foto'] = $photoInfo['file_name'];
+
+			if($photoInfo['image_width'] > $photoInfo['image_height']){
+				$formData['ajuste'] = 'horizontal';
+			}else{
+				$formData['ajuste'] = 'vertical';
+			}
 		}
 
-		$result = $this->db->insert('eventos', $formData);
-
-
-
-		return $result;
+		return $this->db->insert('eventos', $formData);
 	}
 
 
@@ -85,7 +86,7 @@ class Slides_model extends CI_Model {
 		$this->upload->initialize($config);
 
 		if( $this->upload->do_upload($file) ){
-			$result = $this->upload->data()['file_name'];
+			$result = $this->upload->data();
 		}
 
 		return $result;
@@ -108,6 +109,6 @@ class Slides_model extends CI_Model {
 
 		$this->load->library('image_lib', $config);
 
-		$this->image_lib->resize();
+		return $this->image_lib->resize();
 	}
 }
