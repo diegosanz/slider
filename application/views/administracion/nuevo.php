@@ -45,9 +45,9 @@
 				<div class="form-group">
 					<label for="f_inicio">Fechas <span class="annotation">(Inicio - fin)</span></label>
 					<div class="input-daterange input-group datepicker">
-						<input type="text" class="form-control" name="f_inicio" required />
+						<input type="text" class="form-control" name="f_inicio" autocomplete="off" required />
 						<span class="input-group-addon"> - </span>
-						<input type="text" class="form-control" name="f_fin" required />
+						<input type="text" class="form-control" name="f_fin" autocomplete="off" required />
 					</div>
 				</div>
 
@@ -77,7 +77,6 @@
 			var formData = new FormData(thisForm[0]);
 			formData.append('imagen', $("#imagen")[0].files[0]);
 
-
 			$.ajax({
 					type: 'POST'
 				, url: thisForm.attr('action')
@@ -88,7 +87,8 @@
 				, success: function(data){
 						if(data.isCorrect === true){
 							thisForm[0].reset();
-							$(".datepicker").datepicker('clearDates');
+							$('.datepicker input').datepicker('clearDates');
+
 							createAlert(
 								'Guardado'
 							, 'El evento se ha guardado correctamente.'
