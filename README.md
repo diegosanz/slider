@@ -15,6 +15,7 @@
 - [Bootswatch - Lumen Theme](http://bootswatch.com/) - Tema visual
 - [PNotify](http://sciactive.com/pnotify/) - Sistema de notificaciones
 - [Bootstrap-datepicker](https://github.com/eternicode/bootstrap-datepicker) - Selector de fechas
+- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) - Fuente de Iconos
 - [jQuery](http://jquery.com/)
 
 ## Requisitos
