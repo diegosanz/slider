@@ -95,20 +95,23 @@ h1 {
 	background-repeat: no-repeat;
 }
 
-.panel-info .title {
-	text-transform: uppercase;
-}
-
 .panel-info .datos {
 	font-size: 1.3em;
 	padding: 0.3em 0;
 }
+.panel-info .title {
+	text-transform: uppercase;
+}
+
 .panel-info .img-footer {
 	text-align: center;
 	position: absolute;
-	bottom: 1em;
+	bottom: 0;
 	left: 0;
 	right: 0;
+  padding: 0 0 1em 0;
+  background: #E7E7E7;
+  box-shadow: -10px -15px 15px #E7E7E7;
 }
 .panel-info .img-footer .footer-ayto {
 	margin: 0 2em 0 0;

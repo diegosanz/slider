@@ -67,7 +67,6 @@ class Slides_model extends CI_Model {
 				$formData['ajuste'] = 'vertical';
 			}
 		}
-
 		return $this->db->insert('eventos', $formData);
 	}
 
@@ -107,8 +106,12 @@ class Slides_model extends CI_Model {
 		$config['width'] = 1280;
 		$config['height'] = 1080;
 
-		$this->load->library('image_lib', $config);
+		$this->load->library('image_lib');
+		$this->image_lib->initialize($config);
 
-		return $this->image_lib->resize();
+		$result= $this->image_lib->resize();
+
+		$this->image_lib->clear();
+		return $result;
 	}
 }

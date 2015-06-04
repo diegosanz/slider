@@ -7,9 +7,8 @@ class Visor_model extends CI_Model {
 	 * @return ARRAY con los eventos
 	 */
 	public function getSlides(){
-
 		$sql = "SELECT
-				titulo, datos, descripcion, tipo, foto
+				titulo, datos, descripcion, tipo, foto, ajuste
 			FROM
 				eventos_actuales
 			";
