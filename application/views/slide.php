@@ -34,7 +34,7 @@
 				<img class="footer-soria" src="<?php echo 'img/soria.png' ?>">
 			</section>
 		</div>
-		<div class="col-md-8 img-principal-container">
+		<div class="col-md-8 photo-column">
 			<?php
 				if( ! $foto){
 					$foto = base_url('/img/slides_default/'. $tipo .'.jpg');
@@ -42,7 +42,15 @@
 					$foto = base_url($this->config->item('photosRoute') . $foto);
 				}
 			?>
-			<img src="<?php echo $foto ?>" class="img-principal <?php echo $ajuste ?>">
+			<!-- <img src="<?php echo $foto ?>" class="img-principal <?php echo $ajuste ?>"> -->
+			<div class="photo-container">
+				<div class="photo-background <?php echo $ajuste ?>" style="background-image: url('<?php echo $foto ?>');">
+					&nbsp;
+				</div>
+				<div class="photo-main <?php echo $ajuste ?>" style="background-image: url('<?php echo $foto ?>');">
+					&nbsp;
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
