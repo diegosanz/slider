@@ -96,7 +96,7 @@ class Slides_model extends CI_Model {
 	 *
 	 * @param STRING ruta hacia de la imagen a convertir
 	 * @param STRING nombre de la imagen a convertir
-	 * @return
+	 * @return BOOLEAN resultado de la inserción
 	 */
 	private function resizePhoto($photoRoute, $photo){
 		$config['image_library'] = 'gd2';
