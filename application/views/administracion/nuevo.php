@@ -88,6 +88,7 @@
 				, success: function(data){
 						if(data.isCorrect === true){
 							thisForm[0].reset();
+							$(".datepicker").datepicker('clearDates');
 							createAlert(
 								'Guardado'
 							, 'El evento se ha guardado correctamente.'

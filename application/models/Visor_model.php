@@ -2,11 +2,11 @@
 class Visor_model extends CI_Model {
 
 	/**
-	 * Devuelve un array con el listado de los eventos
+	 * Devuelve el listado de los eventos que hay publicados en este momento
 	 *
 	 * @return ARRAY con los eventos
 	 */
-	public function getSlides(){
+	public function getActualSlides(){
 		$sql = "SELECT
 				titulo, datos, descripcion, tipo, foto, ajuste
 			FROM

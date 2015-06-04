@@ -39,7 +39,8 @@ Requisitos mínimos:
 - Es necesario tener habilitado el mod_rewrite de apache y el .htaccess para poder quitar el `index.php` de la URL. [Más info aquí.](http://www.codeigniter.com/user_guide/general/urls.html?highlight=mod_rewrite#removing-the-index-php-file)
 
 ## Configuración en explotación
-A la hora de poner la aplicación en el servidor de explotación hay que recordar revisar los ficheros de configuración `database.php` y `config.php` situados en `./application/config/`, en especial todo lo relativo a claves, y contraseñas.
+- A la hora de poner la aplicación en el servidor de explotación hay que recordar revisar los **ficheros de configuración** `database.php` y `config.php` situados en `./application/config/`, en especial todo lo relativo a claves, y contraseñas.
+- Para adaptar el slider al **tamaño de la pantalla** hay que configurar las medidas de la misma con el `width` y `height` de la clase `.swiper-container` en el fichero `./css/visor.css`. Esto es así porque algunos navegadores tienen un bug que hace que entre cambios de disapositiva se queda atascado.
 
 ## Herramientas utilizadas para el desarrollo:
 - Atom

@@ -2,7 +2,7 @@
 ?>
 <div class="swiper-slide">
 	<div class="row-full-height">
-		<div class="col-md-4 col-full-height panel-info <?php echo $tipo ?>">
+		<div class="col-md-4 col-full-height panel-info <?php echo $tipo; ?>">
 			<section class="header">
 				<div class="hoyensoria">
 					<h1 class="hoyen">
@@ -35,7 +35,14 @@
 			</section>
 		</div>
 		<div class="col-md-8 img-principal-container">
-			<img src="" class="img-principal">
+			<?php
+				if( ! $foto){
+					$foto = base_url('/img/slides_default/'. $tipo .'.jpg');
+				}else{
+					$foto = base_url($this->config->item('photosRoute') . $foto);
+				}
+			?>
+			<img src="<?php echo $foto ?>" class="img-principal <?php echo $ajuste ?>">
 		</div>
 	</div>
 </div>

@@ -41,7 +41,7 @@ class Slides_model extends CI_Model {
 			, 'descripcion' => $this->input->post('descripcion')
 			, 'id_tipos_eventos' => $this->input->post('tipo')
 			, 'foto' => null
-			, 'ajuste' => null
+			, 'ajuste' => 'default'
 		);
 
 		// validacion: trim, not NULL
