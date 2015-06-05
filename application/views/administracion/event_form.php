@@ -25,7 +25,7 @@
 </div>
 
 <div class="form-group">
-	<label for="f_inicio">Fechas <span class="annotation">(Inicio - fin)</span></label>
+	<label for="f_inicio">Fechas en las que se mostrará <span class="annotation">(Inicio - fin)</span></label>
 	<div class="input-daterange input-group datepicker">
 		<input type="text" class="form-control" name="f_inicio" autocomplete="off" required />
 		<span class="input-group-addon"> - </span>
