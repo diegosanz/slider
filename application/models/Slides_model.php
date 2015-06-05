@@ -13,12 +13,54 @@ class Slides_model extends CI_Model {
 				id, nombre, clase_css
 			FROM
 				tipos_eventos
-			";
+		";
 
 		if($id !== FALSE){
 			$sql .= ' WHERE
 					id = ' . $this->db->escape($id);
 		}
+
+		$query = $this->db->query($sql);
+
+		return $query->result_array();
+	}
+
+	/**
+	 * Devuelve el evento al que corresponda ese ID
+	 *
+	 * @param  INT id que se desea buscar, si no se le pasa id devuelve todos los eventos
+	 * @return ARRAY con los eventos
+	 */
+	public function getEvents($id){
+		$sql = "SELECT
+				id
+			FROM
+				eventos
+			WHERE
+				id = " . $this->db->escape($id);
+
+		$query = $this->db->query($sql);
+
+		return $query->result_array();
+	}
+
+	/**
+	 * Extrae la lista de eventos para seleccionarlos en "modificar" y "borrar"
+	 *
+	 * La lista sólo incluye eventos actuales o futuros
+	 *
+	 * @return ARRAY lista con los eventos
+	 */
+	public function getAvailableEvents(){
+		$sql = "SELECT
+				e.id, e.titulo, t.nombre as tipo, e.fecha_inicio, e.fecha_fin, e.fecha_anadido, e.fecha_modificado
+			FROM
+				eventos e
+					INNER JOIN tipos_eventos t
+						ON e.id_tipos_eventos = t.id
+			WHERE
+				e.fecha_fin >= curdate()
+		";
 
 		$query = $this->db->query($sql);
 

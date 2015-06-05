@@ -13,10 +13,6 @@ class Visor_model extends CI_Model {
 				eventos_actuales
 			";
 
-			// PARCHE
-			$sql .= "WHERE foto != ''";
-			// !PARCHE
-
 		$query = $this->db->query($sql);
 
 		return $query->result_array();

@@ -26,17 +26,29 @@ class Administracion extends Logged_controller {
 	 * Muestra el formulario de "modificar"
 	 */
 	public function modificar(){
+		$this->load->model('slides_model');
 		$this->load->library('navbar');
+
 		$data['navbar'] = $this->navbar->get_navbar();
+		$data['eventsList'] = $this->slides_model->getAvailableEvents();
+		$data['tiposEventos'] = $this->slides_model->getEventTypes();
+
+
 		$this->load->view('administracion/modificar', $data);
 	}
 
-	// public function ordenar(){
-	// 	$data['operationView'] = 'ordenar';
-	// 	$this->load->library('navbar');
-	// 	$data['navbar'] = $this->navbar->get_navbar();
-	// 	$this->load->view('administracion', $data);
-	// }
+	/**
+	 * Devuelve un json con la info de un evento
+	 *
+	 * @param  INT id del evento a buscar
+	 */
+	public function get_event($id = -1){
+		requireAjaxRequest();
+		$this->load->model('slides_model');
+
+		$event = $this->slides_model->getEvents($id);
+		var_dump($event);
+	}
 
 	/**
 	 * Recibe el formulario de "nuevo" por AJAX y responde un JSON con la información de la inserción

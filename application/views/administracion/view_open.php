@@ -7,7 +7,7 @@
 				<ul class="list-group">
 					<li class="list-group-item"><a href="<?php echo base_url('administracion/nuevo') ?>"><i class="fa fa-fw fa-plus"></i> Añadir evento</a></li>
 					<li class="list-group-item"><a href="<?php echo base_url('administracion/modificar') ?>"><i class="fa fa-fw fa-pencil"></i> Modificar evento</a></li>
-					<li class="list-group-item"><a href="<?php echo base_url('administracion/ordenar') ?>"><i class="fa fa-fw fa-sort"></i> Ordenar eventos</a></li>
+					<li class="list-group-item"><a href="<?php echo base_url('administracion/borrar') ?>"><i class="fa fa-fw fa-trash-o"></i> Borrar eventos</a></li>
 				</ul>
 			</div>
 		</div>

@@ -13,11 +13,12 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-        <li><a href="<?php echo base_url() ?>" target="_blank"><i class="fa fa-eye"></i>
- Previsualizar</a></li>
-      </ul>
 			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="<?php echo base_url() ?>" target="_blank">
+						<i class="fa fa-eye"></i> Previsualizar
+					</a>
+				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 						<?php echo $navbar['userName']; ?>

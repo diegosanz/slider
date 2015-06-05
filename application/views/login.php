@@ -46,9 +46,9 @@
 						location.href = redirect;
 					}else{
 						createAlert(
-							'Login incorrecto'
-						, 'Compruebe que ha escrito bien su <b>nombre</b> y su <b>contraseña</b>'
-						, 'notice'
+								'Login incorrecto'
+							, 'Compruebe que ha escrito bien su <b>nombre</b> y su <b>contraseña</b>'
+							, 'notice'
 						);
 					}
 				}
@@ -57,7 +57,7 @@
 							'Error de comunicación con el servidor'
 						, 'Inténtelo de nuevo pasados unos segundos. Si el error persiste contacte con el servicio técnico.'
 						, 'error'
-						);
+					);
 				}
 				, complete: function() {
 					$("*[type='submit']", thisFrom).prop("disabled", false);
