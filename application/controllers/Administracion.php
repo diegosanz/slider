@@ -30,11 +30,20 @@ class Administracion extends Logged_controller {
 		$this->load->library('navbar');
 
 		$data['navbar'] = $this->navbar->get_navbar();
-		$data['eventsList'] = $this->slides_model->getAvailableEvents();
+		$data['tiposEventos'] = $this->slides_model->getEventTypes();
+
+		$this->load->view('administracion/modificar', $data);
+	}
+
+	public function borrar(){
+		$this->load->model('slides_model');
+		$this->load->library('navbar');
+
+		$data['navbar'] = $this->navbar->get_navbar();
 		$data['tiposEventos'] = $this->slides_model->getEventTypes();
 
 
-		$this->load->view('administracion/modificar', $data);
+		$this->load->view('administracion/borrar', $data);
 	}
 
 	// -------------------------------

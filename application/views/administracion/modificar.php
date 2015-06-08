@@ -33,29 +33,6 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php
-					// $struct = '<tr data-id="%d" class="selectable-tr">
-					// 	<td>%s</td>
-					// 	<td>%s</td>
-					// 	<td>%s</td>
-					// 	<td>%s</td>
-					// 	<td>%s</td>
-					// 	<td>%s</td>
-					// </tr>';
-					//
-					// foreach ($eventsList as $event) {
-					// 	echo sprintf(
-					// 			$struct
-					// 		, $event['id']
-					// 		, $event['titulo']
-					// 		, $event['tipo']
-					// 		, $event['fecha_inicio']
-					// 		, $event['fecha_fin']
-					// 		, $event['fecha_anadido']
-					// 		, $event['fecha_modificado']
-					// 	);
-					// }
-				?>
 			</tbody>
 		</table>
 	</div>
@@ -107,7 +84,7 @@
 			, error: function(error){
 					createAlertErrorCom();
 				}
-			, complete(){
+			, complete: function(){
 				// llamada a dataTables
 				$('.datatable').dataTable( {
 					destroy: true,
