@@ -28,25 +28,16 @@ select.form-control {
 	background-position: right;
 	padding-right: 2em;
 }
-select.form-control::after {
-	content:"\025be";
-	display:table-cell;
-	text-align:center;
-	padding-top:7px;
-	position:absolute;
-	top:0;
-	right:0px;
-	pointer-events: none;
-}
-select.form-control optgroup{
-	margin: 1em;
-}
 select[size].form-control optgroup{
 	margin: 0;
 	margin-bottom: 20px;
 }
 select[size="20"].form-control {
 	height: 20em;
+}
+select.input-sm {
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 textarea.form-control {
@@ -183,6 +174,10 @@ textarea.form-control {
 .login-container {
 	margin-top: 2em;
 	margin-bottom: 1em;
+}
+
+.info-foto img{
+	width: 120px;
 }
 
 .selectable-tr:hover {

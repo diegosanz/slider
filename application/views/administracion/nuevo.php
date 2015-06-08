@@ -27,6 +27,7 @@
 		$('.datepicker').datepicker({
 				language: "es"
 				, todayHighlight: true
+				, format: "yyyy-mm-dd"
 		});
 
 		// submit del formulario
@@ -64,11 +65,7 @@
 						}
 					}
 				, error: function(error){
-						createAlert(
-								'Error de comunicación con el servidor'
-							, 'Inténtelo de nuevo pasados unos segundos. Si el error persiste contacte con el servicio técnico.'
-							, 'error'
-						);
+						createAlertErrorCom();
 					}
 				, complete: function() {
 						$("*[type='submit']", thisForm).prop("disabled", false);

@@ -53,11 +53,7 @@
 					}
 				}
 				, error: function(error){
-					createAlert(
-							'Error de comunicación con el servidor'
-						, 'Inténtelo de nuevo pasados unos segundos. Si el error persiste contacte con el servicio técnico.'
-						, 'error'
-					);
+					createAlertErrorCom();
 				}
 				, complete: function() {
 					$("*[type='submit']", thisFrom).prop("disabled", false);

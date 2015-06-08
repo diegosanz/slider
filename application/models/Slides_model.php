@@ -33,7 +33,7 @@ class Slides_model extends CI_Model {
 	 */
 	public function getEvents($id){
 		$sql = "SELECT
-				id
+				id, titulo, datos, descripcion, fecha_inicio, fecha_fin, foto, id_tipos_eventos as tipo
 			FROM
 				eventos
 			WHERE
@@ -78,8 +78,10 @@ class Slides_model extends CI_Model {
 		$formData = array(
 				'titulo' => $this->input->post('titulo')
 			, 'datos' => $this->input->post('datos')
-			, 'fecha_inicio' => dateConversor('d/m/Y', 'Y-m-d', $this->input->post('f_inicio'))
-			, 'fecha_fin' => dateConversor('d/m/Y', 'Y-m-d', $this->input->post('f_fin'))
+			// , 'fecha_inicio' => dateConversor('d/m/Y', 'Y-m-d', $this->input->post('f_inicio'))
+			// , 'fecha_fin' => dateConversor('d/m/Y', 'Y-m-d', $this->input->post('f_fin'))
+			, 'fecha_inicio' => $this->input->post('f_inicio')
+			, 'fecha_fin' => $this->input->post('f_fin')
 			, 'descripcion' => $this->input->post('descripcion')
 			, 'id_tipos_eventos' => $this->input->post('tipo')
 			, 'foto' => null
@@ -110,6 +112,53 @@ class Slides_model extends CI_Model {
 			}
 		}
 		return $this->db->insert('eventos', $formData);
+	}
+
+	public function formModify(){
+		$this->load->helper('dates');
+		$result = false;
+
+		$id = $this->input->post('id');
+
+		$formData = array(
+				'titulo' => $this->input->post('titulo')
+			, 'datos' => $this->input->post('datos')
+			, 'fecha_inicio' => $this->input->post('f_inicio')
+			, 'fecha_fin' => $this->input->post('f_fin')
+			, 'descripcion' => $this->input->post('descripcion')
+			, 'id_tipos_eventos' => $this->input->post('tipo')
+			, 'foto' => null
+			, 'ajuste' => 'default'
+		);
+
+		// validacion: trim, not NULL
+		foreach ($formData as $key => $value) {
+			if($formData[$key] === NULL){
+				$formData[$key] = "";
+			}else{
+				$formData[$key] = trim($formData[$key]);
+			}
+		}
+
+		// subir la foto
+		$photoRoute = $this->config->item('photosRoute');
+		$photoInfo = $this->uploadPhoto('imagen', $photoRoute);
+
+		// redimensionar la foto
+		if($photoInfo && $this->resizePhoto($photoRoute, $photoInfo['file_name'])){
+			$formData['foto'] = $photoInfo['file_name'];
+
+			if($photoInfo['image_width'] > $photoInfo['image_height']){
+				$formData['ajuste'] = 'horizontal';
+			}else{
+				$formData['ajuste'] = 'vertical';
+			}
+		}
+
+		$this->db->where('id', $id);
+		$result = $this->db->update('eventos', $formData);
+
+		return $result;
 	}
 
 

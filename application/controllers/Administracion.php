@@ -37,6 +37,20 @@ class Administracion extends Logged_controller {
 		$this->load->view('administracion/modificar', $data);
 	}
 
+	// -------------------------------
+	// AJAX
+	// -------------------------------
+	/**
+	 * Devuelve un json con la lista de eventos disponibles
+	 */
+	public function get_avalilable_events(){
+		requireAjaxRequest();
+		$this->load->model('slides_model');
+
+		$data['json'] = json_encode( $this->slides_model->getAvailableEvents() );
+		$this->load->view('json', $data);
+	}
+
 	/**
 	 * Devuelve un json con la info de un evento
 	 *
@@ -46,8 +60,8 @@ class Administracion extends Logged_controller {
 		requireAjaxRequest();
 		$this->load->model('slides_model');
 
-		$event = $this->slides_model->getEvents($id);
-		var_dump($event);
+		$data['json'] = json_encode( $this->slides_model->getEvents($id) );
+		$this->load->view('json', $data);
 	}
 
 	/**
@@ -58,6 +72,19 @@ class Administracion extends Logged_controller {
 		$this->load->model('slides_model');
 
 		$response['isCorrect'] = $this->slides_model->formAdd();
+		$data['json'] = json_encode($response);
+
+		$this->load->view('json', $data);
+	}
+
+	/**
+	 * Recibe el formulario de "modificar" por AJAX y responde un JSON con la información de la inserción
+	 */
+	public function formModify(){
+		requireAjaxRequest();
+		$this->load->model('slides_model');
+
+		$response['isCorrect'] = $this->slides_model->formModify();
 		$data['json'] = json_encode($response);
 
 		$this->load->view('json', $data);
