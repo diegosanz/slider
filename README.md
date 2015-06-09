@@ -50,7 +50,7 @@ Hay que subir dos imágenes al servidor.
 
 La primera tiene que ir en `./img/slides` y es la imagen pequeña que se mostrará en la parte superior izquierda al lado del "Hoy en Soria". El tamaño recomendado es de 83 píxeles de alto.
 
-La segunda tiene que ir en la carpeta `./img/slides_default` y es la imagen que aparecerá en la presentación cuando no se suba una imagen para ese evento. El tamaño recomendado es de 1080 píxeles de alto.
+La segunda tiene que ir en la carpeta `./img/slides_default` y es la imagen que aparecerá en la presentación cuando no se suba una imagen para ese evento. El tamaño recomendado es de 1080 píxeles de alto, el nombre del archivo tiene que ser el mismo que `clase_css` y la extensión `.jpg`.
 
 ### Estilos
 Una vez definido en la base de datos y subidas las imágenes, hay que definir los estilos en el fichero `visor.css`. Suponiendo que la `clase_css` que hemos creado habría que definirlo de la siguiente manera:
