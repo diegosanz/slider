@@ -18,4 +18,23 @@ class Visor_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function listIds(){
+		$result = false;
+
+		$sql = "SELECT
+				GROUP_CONCAT( id ) AS clave
+			FROM
+				eventos
+			ORDER BY
+				id
+		";
+
+		$query = $this->db->query($sql);
+
+		if($query->num_rows() > 0){
+			$result = $query->result_array()[0]['clave'];
+		}
+
+		return $result;
+	}
 }

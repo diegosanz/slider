@@ -1,4 +1,5 @@
 $(document).on('ready', function () {
+	// slider
 	var slider = new Swiper ('.swiper-container', {
 		initialSlide: 0,
 		direction: 'vertical', // horizontal || vertical

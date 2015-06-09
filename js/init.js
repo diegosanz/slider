@@ -53,6 +53,7 @@ var createAlert = function(title, text, type){
 			title: title
 			, text: text
 			, type: type
+			, mouse_reset: false
 		});
 	});
 }

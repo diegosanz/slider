@@ -520,3 +520,8 @@ $config['supportMail'] = "info@mail.com";
  * Ruta de los archivos de las imágenes del slider
  */
 $config['photosRoute'] = './img/uploaded/';
+
+/**
+ * Tiempo de duracion de las presentaciones (en milisegundos)
+ */
+$config['visor_timeout'] = 36000; // 36000 = 10 minutos

@@ -8,10 +8,22 @@ class Visor extends CI_Controller {
 
 		$data = [];
 		$data['arrSlides'] = $this->visor_model->getActualSlides();
+		$data['clave'] = $this->visor_model->listIds();
+		$data['timeout'] = $this->config->item('visor_timeout');
 
 		// reemplazo de saltos de línea por <br>
 		$data = convertLineBreak($data);
 
 		$this->load->view('visor', $data);
+	}
+
+	public function checkUpdates(){
+		requireAjaxRequest();
+		$this->load->model('visor_model');
+
+		$clave['clave'] = $this->visor_model->listIds();
+		$data['json'] = json_encode($clave);
+
+		$this->load->view('json', $data);
 	}
 }

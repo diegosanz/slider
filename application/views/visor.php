@@ -33,5 +33,25 @@
 
 		<div class="swiper-scrollbar"></div>
 	</div>
+<script>
+// comprobar actualizaciones
+$(function(){
+	var timeout = <?php echo $timeout ?>;
+	var clave = "<?php echo $clave ?>";
+	var temporizador = window.setInterval(function(){
+		$.ajax({
+			type: 'POST'
+			, url: '<?php echo base_url('visor/checkUpdates') ?>'
+			, data: $(this).serialize()
+			, success: function(data){
+				// evitar la primera ejecución al cargar la página
+				if(clave !== data.clave){
+					location.reload(true);
+				}
+			}
+		});
+	}, timeout);
+});
+</script>
 </body>
 </html>
