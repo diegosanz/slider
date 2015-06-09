@@ -98,4 +98,14 @@ class Administracion extends Logged_controller {
 
 		$this->load->view('json', $data);
 	}
+
+	public function formDelete(){
+		requireAjaxRequest();
+		$this->load->model('slides_model');
+
+		$response['isCorrect'] = $this->slides_model->formDelete();
+		$data['json'] = json_encode($response);
+
+		$this->load->view('json', $data);
+	}
 }

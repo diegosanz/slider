@@ -161,6 +161,11 @@ class Slides_model extends CI_Model {
 		return $result;
 	}
 
+	public function formDelete(){
+		$id = $this->input->post('delete-id');
+		return $this->db->delete('eventos', array('id' => $id));
+	}
+
 
 	// --- PRIVATE ---
 	private function uploadPhoto($file, $route){

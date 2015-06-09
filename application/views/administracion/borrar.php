@@ -38,6 +38,29 @@
 	</div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<form action="<?php echo base_url('administracion/formDelete') ?>">
+		<input type="hidden" name="delete-id" id="delete-id">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Borrar evento</h4>
+				</div>
+				<div class="modal-body">
+					¿Está seguro de que desea borrar el elemento seleccionado? Los elementos borrados no se podrán recuperar.
+				</div>
+				<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-danger">Borrar</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
 <script>
 	var reloadTable = function(){
 		$.ajax({
@@ -49,7 +72,7 @@
 			, success: function(data){
 					var html = "";
 					var tr = "";
-					var struct = '<tr data-id="{id}" class="selectable-tr"><td>{titulo}</td><td>{tipo}</td><td>{fecha_inicio}</td><td>{fecha_fin}</td><td>{fecha_anadido}</td><td>{fecha_modificado}</td></tr>';
+					var struct = '<tr data-id="{id}" class="selectable-tr" data-toggle="modal" data-target="#confirm-modal"><td>{titulo}</td><td>{tipo}</td><td>{fecha_inicio}</td><td>{fecha_fin}</td><td>{fecha_anadido}</td><td>{fecha_modificado}</td></tr>';
 					for (var fila in data) {
 						tr = struct;
 						for(var col in data[fila]){
@@ -100,38 +123,47 @@
 		// cargar la tabla
 		reloadTable();
 
-		// ventana modal
-		$('#datatable-container').on('click', '.selectable-tr', function(){
-			// pasos:
-			// 1. pedir ajax
-			// 2. success: reemplazar en la modal, error: alerta
-			// 3. mostrar modal
+		// confirm de borrado
+		$('#confirm-modal').on('show.bs.modal', function (event) {
+			var button = $(event.relatedTarget);
+			var id = button.data('id');
+			$('#delete-id').val(id);
+		});
 
-			var id = $(this).data('id');
+		// submit del formulario
+		$('form').on('submit', function(event){
+			event.preventDefault();
+			var thisForm = $(this);
 
-			(new PNotify({
-				title: '¿Está seguro de que quiere borrar esta entrada?',
-				text: 'Las entradas borradas no se podrán recuperar',
-				icon: 'glyphicon glyphicon-question-sign',
-				hide: false,
-				type: 'info',
-				confirm: {
-					confirm: true
-				},
-				buttons: {
-					closer: false,
-					sticker: false
-				},
-				history: {
-					history: false
-				}
-			})).get().on('pnotify.confirm', function() {
-				alert('Ok, cool.');
-			}).on('pnotify.cancel', function() {
-				alert('Oh ok. Chicken, I see.');
+			$("*[type='submit']", thisForm).attr("disabled", "disabled");
+			$.ajax({
+					type: 'POST'
+				, url: thisForm.attr('action')
+				, data: thisForm.serialize()
+				, success: function(data){
+						if(data.isCorrect === true){
+							createAlert(
+								'Borrado'
+							, 'El evento se ha borrado correctamente.'
+							, 'success'
+							);
+						}else{
+							createAlert(
+								'Error'
+							, 'Ocurrió un error al borrar el evento. Recargue la página e inténtelo de nuevo.'
+							, 'warning'
+							);
+						}
+					}
+				, error: function(error){
+						createAlertErrorCom();
+					}
+				, complete: function() {
+						reloadTable();
+						$('#confirm-modal').modal('hide');
+						$("*[type='submit']", thisForm).prop("disabled", false);
+					}
 			});
-
-
 		});
 	});
 </script>

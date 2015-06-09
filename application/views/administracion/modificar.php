@@ -225,9 +225,9 @@
 		// enviar el formulario
 		$('form').on('submit', function(event){
 			event.preventDefault();
+			var thisForm = $(this);
 			$("*[type='submit']", thisForm).attr("disabled", "disabled");
 
-			var thisForm = $(this);
 			var formData = new FormData(thisForm[0]);
 			formData.append('imagen', $("#imagen")[0].files[0]);
 
