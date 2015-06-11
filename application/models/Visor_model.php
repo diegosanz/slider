@@ -22,11 +22,11 @@ class Visor_model extends CI_Model {
 		$result = false;
 
 		$sql = "SELECT
-				GROUP_CONCAT( id ) AS clave
+				GROUP_CONCAT( fecha_modificado ) AS clave
 			FROM
 				eventos
 			ORDER BY
-				id
+				1
 		";
 
 		$query = $this->db->query($sql);
