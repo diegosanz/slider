@@ -153,6 +153,9 @@ h1 {
 .panel-info .title {
 	text-transform: uppercase;
 }
+.panel-info .descripcion {
+	font-size: 1.2em;
+}
 
 .panel-info .img-footer {
 	text-align: center;
