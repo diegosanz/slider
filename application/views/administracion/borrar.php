@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 	$this->load->view('default/head');
 ?>
-	<title>Modificar evento</title>
+	<title>Borrar evento</title>
 	<link rel="stylesheet" href="<?php echo base_url('css/dataTables.bootstrap.css'); ?>">
 	<script type="text/javascript" src="<?php echo base_url('js/jquery.dataTables.min.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('js/dataTables.bootstrap.js') ?>"></script>
@@ -17,7 +17,7 @@
 <div class="panel-heading">Modificar evento</div>
 <div class="panel-body">
 	<p>
-		Desde aquí puedes modificar un evento ya creado. Sólo se muestran eventos cuya fecha de finalización es igual o posterior a la fecha actual.
+		Desde aquí puedes borrar eventos ya creados. Sólo se muestran eventos cuya fecha de finalización es igual o posterior a la fecha actual.
 	</p>
 	<hr>
 	<div id="datatable-container">
